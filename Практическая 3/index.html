@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+	<link rel="stylesheet" href="style.css">
+    <title>Практическая работа 3</title>
+</head>
+<body>
+    <header>
+        <h1>JavaScript для начинающих</h1>
+    </header>
+    <main>
+        <p>JavaScript - это язык программирования, который позволяет создавать интерактивные веб-страницы. С помощью JavaScript можно изменять содержимое страницы, обрабатывать события пользователя, валидировать формы и многое другое.</p>
+        <p>JavaScript может быть использован во многих случаях, например:</p>
+        <ul>
+            <li>Для добавления интерактивности на веб-страницу</li>
+            <li>Для создания игр и анимаций</li>
+            <li>Для работы с базами данных</li>
+            <li>Для создания мобильных приложений</li>
+            <li>Для разработки серверной части веб-приложений</li>
+        </ul>
+        <p>Однако, в некоторых случаях использование JavaScript может не быть подходящим, например:</p>
+        <ul>
+            <li>Если браузер пользователя не поддерживает JavaScript</li>
+            <li>Если нужно создать очень сложное приложение, где JavaScript может не справиться</li>
+            <li>Если требования к безопасности не позволяют использовать JavaScript</li>
+        </ul>
+        <h2>Задача: выведите четные числа от 8 до 20</h2>
+        <button id="show-result">Показать решение</button>
+        <p id="greeting">Привет! Как тебя зовут?</p>
+        <input type="text" id="name-input">
+        <button id="save-name">Сохранить имя</button>
+        <button id="pass-test">Пройти тест</button>
+        <button id="show-overlay">Показать заставку</button>
+    </main>
+
+    <div class="fullscreen" style="display:none;">
+        <div class="fullscreen-content">
+            <p>Решение:</p>
+            <pre><code>for (let i = 8; i <= 20; i++) {
+  if (i % 2 === 0) {
+    console.log(i);
+  }
+}</code></pre>
+            <button id="hide-result">Скрыть решение</button>
+</div>
+</div>
+<script src="script.js"></script>
+</body>
+</html>
