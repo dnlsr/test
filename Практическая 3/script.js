@@ -23,34 +23,36 @@ if (savedUsername) {
 }
 
     // Показываем/скрываем решение задачи при нажатии на кнопку "Показать решение"/"Скрыть решение"
-	    const showResultButton = document.getElementById('show-result');
-    const hideResultButton = document.getElementById('hide-result');
-    const resultOverlay = document.querySelector('.fullscreen');
+	const showResultButton = document.getElementById('show-result');
+	const hideResultButton = document.getElementById('hide-result');
+	const resultOverlay = document.querySelector('.fullscreen');
+	const showOverlayButton = document.getElementById('show-overlay');
+	const fullscreenContent = document.querySelector('.fullscreen-content');
+	// Сохраняем оригинальное содержимое fullscreen-content
+	const originalFullscreenContent = fullscreenContent.innerHTML;
 
-    showResultButton.addEventListener('click', () => {
-        resultOverlay.style.display = 'flex';
-    });
+	showResultButton.addEventListener('click', () => {
+	resultOverlay.style.display = 'flex';
+	});
 
-    hideResultButton.addEventListener('click', () => {
-        resultOverlay.style.display = 'none';
-    });	
+	hideResultButton.addEventListener('click', () => {
+	resultOverlay.style.display = 'none';
+	});
+	// Показываем заставку при нажатии на кнопку "Показать заставку"
+	showOverlayButton.addEventListener('click', () => {
+	const overlayContent = `
+    <p class="floating-text">Привет, <span>${localStorage.getItem('username') || 'гость'}</span>!</p>
+    <p class="floating-text">Сегодня ${new Date().toLocaleDateString()}</p>
+	`;
+	fullscreenContent.innerHTML = overlayContent;
+	resultOverlay.style.display = 'flex';
+	});
 
-    // Показываем заставку при нажатии на кнопку "Показать заставку"
-    const showOverlayButton = document.getElementById('show-overlay');
-    const fullscreenContent = document.querySelector('.fullscreen-content');
-
-    showOverlayButton.addEventListener('click', () => {
-        fullscreenContent.innerHTML = `
-            <p>Привет, <span>${localStorage.getItem('username') || 'гость'}</span>!</p>
-            <p>Сегодня ${new Date().toLocaleDateString()}</p>
-        `;
-        resultOverlay.style.display = 'flex';
-    });
-
-    // Закрываем заставку при нажатии на любое место экрана
-    resultOverlay.addEventListener('click', () => {
-        resultOverlay.style.display = 'none';
-    });
+	resultOverlay.addEventListener('click', () => {
+	resultOverlay.style.display = 'none';
+	// Восстанавливаем оригинальное содержимое fullscreen-content
+	fullscreenContent.innerHTML = originalFullscreenContent;
+	});
 
     // Пройти тест
     const questions = [
